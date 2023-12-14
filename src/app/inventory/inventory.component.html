@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="inventory.component.css">
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Button</th>
+                <th scope="col">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let i of inventory">
+                <td><img [src]="i.image" style="width: 50px; height: 50px;"></td>
+                <td>{{i.name | uppercase}}</td>
+                <td>{{i.price | currency}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="decreaseQty(i)">
+                        -
+                    </button>
+                    <input min="0" type="number" [(ngModel)]="i.qty" (ngModelChange)="onQtyChange(i)" style="max-width: 40px; margin: 15px;">
+                    <button class="btn btn-success" (click)="increaseQty(i)">
+                        +
+                    </button>
+                </td>
+                <td *ngIf="i.qty === 0"><p>No {{i.name}} today</p></td>
+                <td *ngIf="i.qty > 0 && i.qty <= i.inStock"><p>Enjoy your {{i.name}}</p></td>
+                <td *ngIf="i.qty > i.inStock"><p>Cannot give you {{i.qty}} {{i.name}}s</p></td>
+              </tr>
+          </table>
+
+          <div class="row">
+            <div class="col-sm-6">
+                <p>You have {{ qtyCount() }} items in your cart</p> : 
+            </div>
+            <div class="col-sm-6">
+                <p>{{joke.value}}</p>
+            </div>
+          </div>
+    </div>
+</div>
