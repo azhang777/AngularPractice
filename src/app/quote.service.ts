@@ -4,10 +4,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class JokeService {
+export class QuoteService {
+  category: string = '';
+
   constructor(private http: HttpClient) {}
 
-  getJoke() {
-    return this.http.get('https://api.chucknorris.io/jokes/random');
-  } //may need api key
+  getQuote() {
+    return this.http.get('https://api.api-ninjas.com/v1/quotes?category=');
+  }
 }

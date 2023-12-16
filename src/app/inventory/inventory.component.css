@@ -3,3 +3,27 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.product-img {
+  width: 100px;
+  height: 100px;
+}
+
+.equal-width-td {
+  width: 500px; /* Set a fixed width or adjust as needed */
+  max-width: 500px; /* Limit maximum width */
+}
+
+.custom-padding {
+  padding-left: 50px;
+}
+
+.custom-input {
+  max-width: 50px;
+  padding-bottom: 5px;
+  height: 38px;
+}
+
+.no-wrap-text {
+  white-space: nowrap;
+}
